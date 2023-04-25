@@ -1,13 +1,207 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
+        <title>MR Unity Development Guide</title>
+        <link rel="icon" href="https://answers.unity.com/storage/temp/109082-unity.png" type="image/x-icon">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="Ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+        <script src="js/main.js"></script>
+    </head>
 
-</head>
-<body>
+    <body>
+        <div class="content">
+            <div class="toc">
+                <p class="title">Mixed Reality Unity Development Guide</p><hr>
+                <div class="tocsection">
+                    <a href="#intro"><h1>Introduction</h1></a>
+                <hr></div>
 
-  <h1>hi</h1>
-  
-  <p>hello world.</p>
-  
-</body>
+                <div class="tocsection">
+                    <a href="#mr"><h1>Mixed Reality</h1></a>
+                    <a href="#hololens">Microsoft HoloLens</a>
+                    <a href="#unity">Unity</a>
+                <hr></div>
+
+                <div class="tocsection">
+                    <a href="#setup"><h1>Getting Started</h1></a>
+                    <a href="#before"><h1>Before You Start</h1></a>
+                    <a href="#unitysetup">Unity Installation</a>
+                    <a href="#mrtksetup">MRTK Installation</a>
+                    <a href="#scripting">C# Scripting</a>
+                <hr></div>
+
+                <div class="tocsection">
+                    <a href="#mrtk"><h1>Mixed Reality Toolkit</h1></a>
+                    <a href="#mrtkfeatures">Features</a>
+                    <a href="#mrtklinks">Links/Resources</a>
+                <hr></div>
+
+                <div class="tocsection">
+                    <a href="#dev"><h1>Development</h1></a>
+                    <a href="#debug">Debugging</a>
+                <hr></div>
+
+                <div class="tocsection">
+                    <a href="#deploy"><h1>Deployment</h1></a>
+                    <a href="#holosetup">HoloLens Setup</a>
+                    <a href="#emulation">HoloLens Emulation</a>
+                    <a href="#depinstru">Deploying to HoloLens</a>
+                <hr></div>
+
+                <div class="tocsection">
+                    <a href="#conclusion"><h1>Conclusion</h1></a>
+                    <a href="#mrsummary">Mixed Reality Solutions</a>
+                    <a href="#credits">Credits</a>
+                <hr></div>
+            </div>
+            <hr class="vr">
+            <div class="doc">
+                <div class="section">
+                    <h1 id="intro">Welcome to the Mixed Reality Application Unity Development Guide!</h1><p>
+                        This guide covers the basics of Mixed Reality (MR) software development. While there is a wide array of tools and MR headsets available to create and deploy MR software, this guide focuses specifically on deploying Unity projects to a Microsoft HoloLens. Follow along to gain a basis in Unity and the MR software development workflow (or navigate via the Table of Contents to find information relevant to your own project). This document will also cover MR in general, and it's potential as the technology continues to improve.
+                    </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="mr">What is Mixed Reality?</h1><p>
+                        Mixed Reality (MR) is a rapidly evolving field of techonology combining aspects from Augmented Reality (AR) and Virtual Reality (VR) to blend digital and physical elements to enhance the user experience. In VR, the user interacts with a digital world. In AR, digital objects interact with the real world. MR creates an enviroment where both of these concepts coexist. The scope of this techonology is wide, as we see MR applied in a variety of different disciplines and industries. While the tech hasn't yet reached general consumers, the effects of MR are already seen in manufacturing, healthcare, education, research, entertainment, and more.
+                    </p>
+                        <div class="fig">
+                            <img src="https://www.pcworld.com/wp-content/uploads/2022/12/mixed-reality-headsets-100737680-orig.jpg?quality=50&strip=all">
+                            <p class="figtxt">Figure 1: Various Mixed Reality Headsets</p>
+                        </div>
+                        <p>
+                            In education, MR can be used to create immersive and interactive experiences that allow students to explore historical sites, scientific concepts, and artistic works. In healthcare, MR can be used to simulate surgeries and other medical procedures, providing a safe and cost-effective way for medical professionals to train and practice. In entertainment, MR can be used to create immersive games and experiences that blur the line between the digital and physical worlds.
+                        </p>
+                        <p>
+                            It is important that developers, researchers, students, and instructors (and any other profession relating to or involving technology) push for creative MR solutions to the unsolved problems within their disciplines. As MR techonology advances even further, it will only gain accessibility and versatility. MR headsets are becoming more affordable, meaning these enhanced, immersive experiences will soon be in the hands of a much wider range of consumers and developers. 
+                        </p>
+
+                    <h2 id="hololens">The Microsoft HoloLens</h2><p>
+                        The Microsoft HoloLens is a head-mounted display that uses a combination of sensors and cameras to allow a user to experience MR applications. The HoloLens is recognized as one of the most advanced MR devices available, and Microsoft has made it relatively simply for developers to test and release their own MR applications for the HoloLens via the Microsoft Store.
+                    </p>
+                        <div class="fig">
+                            <img src="https://www.cnet.com/a/img/resize/a53bbb847a1b1c7f5d4c76fc982e44c41dc71562/hub/2015/01/24/6dc1d439-49a9-4c1d-92c2-625277366be6/microsoft-hololens-rgb.png?auto=webp&width=1200">
+                            <p class="figtxt">Figure 2: Microsoft HoloLens</p>
+                        </div>
+                        <p>
+                            The first HoloLens was released in 2016, with the second generation of the device (HoloLens 2) having been released late 2019. This guide will focus on developing for the HoloLens 2, but the process is similar for both generations. The HoloLens 2 features hand and eye-tracking, enabling developers to build more intuitive and natural user experiences for the headset. Both the HoloLens 1 and 2 are used throughout the aforementioned industries, but we've only just scratched the surface when it comes to MR solutions with the Microsoft HoloLens.
+                        </p>
+                        <p>
+                            For more information on the HoloLens, <a href="https://www.microsoft.com/en-us/hololens">visit the microsoft website.</a>
+                        </p>
+
+                    <h2 id="unity">Unity</h2><p>
+                        Unity is a program popularly used for game development, but it is also commonly used in the development of MR applications. While there are many alternatives such as Unreal Engine, Unity tends to be the preffered choice due to its accessibility and comprehensive toolset. Microsoft has also developed several toolkits made specifically to be integrated into Unity for Mixed Reality software development. The Mixed Reality Toolkit is the most extensive example, which is the main toolkit this guide will cover. Specifically, this guide will focus on the 3rd Mixed Reality Toolkit (MRTK3).
+                    </p>
+                        <p>
+                            For more information on Unity, <a href="https://unity.com/">visit their website.</a>
+                        </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="setup">Getting started / Installation.</h1><p>
+                        This section will guide you through the process of installing and setting up the proper versions of Unity and the Mixed Reality Toolkit. A 'Hello World' project will be made to ensure the installation and setup has been completeled properly. This section will also cover the scripting aspect of application development, ensuring that you can effectively build and edit scripts for your MR project. Unity uses the programming language C# for scripting and this guide will go over the usage of Visual Studio as the IDE (integrated development environment) of choice, but any IDE or text editor would suffice.
+                    </p>
+
+                    <h2 id="before">Before you start</h2><p>
+                        [list software/hardware needed]
+                    </p>
+
+                    <h2 id="unitysetup">Unity</h2><p>
+                        [step by step through unity installation]
+                    </p>
+
+                    <h2 id="mrtksetup">Mixed Reality Toolkit</h2><p>
+                        [step by step through mrtk installation]
+                    </p>
+                        <p>
+                            [mrtk hello world project setup]
+                        </p>
+
+                    <h2 id="scripting">C# Scripting</h2><p>
+                        As mentioned at the beginning of this section, Unity uses C# as its scripting programming language. During Unity installation you were given the option to install the newest version of Visual Studio, and we will now explore using VS as our IDE to build our own scripts for our 'Hello World' project. Note that any IDE or text editor will work just fine for C# script editing, but Visual Studio has advanced features that tie in perfectly with the MRTK and HoloLens (all 3 developed by Microsoft). This is especially true when it comes time to deploy your application to a device. Again, Visual Studio is recommended, but not required.
+                    </p>
+                        <p>
+                            [scripting tutorial]
+                        </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="mrtk">Microsoft's Mixed Reality Toolkit (MRTK).</h1><p>
+                        The Mixed Reality Toolkit (MRTK) is a library of tools, resources, and components useful for developing mixed reality application. It was originally released under the name HoloToolkit in 2017, specifically for HoloLens app development, but was updated and generalized to be used on a variety of platforms supporting MR.
+                    </p>
+                        <div class="fig">
+                            <img src="https://mspoweruser.com/wp-content/uploads/2019/08/MRTK-2.0-Download.jpg">
+                            <p class="figtxt">Figure 3: MRTK Toolkit Prefabs in MR space</p>
+                        </div>
+                        <p>
+                            MRTK helps to simplify the development process as it provides a universal framework and several useful objects for your Unity MR project. It is available for both Unity and Unreal Engine developers, as either can be used for Mixed Reality application development. Again, this guide will only cover the Unity side of MRTK.
+                        </p>
+
+                    <h2 id="mrtkfeatures">Features</h2><p>
+                        This library includes a wide array of prefabs and components for use in your Unity project. Prefabs are pre-built objects (or collections of objects) with pre-set properties and components that can be easily instantiated and reused. These prefabs include commonly used objects such as UI elements (buttons, sliders, panels, windows, menus, etc.) as well as specific use-case objects such as spatial mapping, hand/eye tracking, and interactivity objects. Using these MRTK tools and components in conjuction with Unity's own prefabs and extensive toolsets allow quick implementation of your mixed reality ideas. 
+                    </p>
+                        <div class="fig">
+                            <img src="https://dongyoonpark.com/wp-content/uploads/2018/11/MRTK_BuildingBlocks.png">
+                            <p class="figtxt">Figure 4: Diagram of some MRTK features</p>
+                        </div>
+                        <p>
+                            Thanks to Microsoft's MRTK, a lot of the work has been done for us in terms of object creation. Your own custom MR software will, of course, require a lot of custom code, objects, and components, but utilize preexisting prefabs/components when possible to avoid tedious or unessecary work. You can access all that the MRTK has to offer directly from Unity after installation, and the setup process included will make sure your enviornment is setup properly for building, testing, and deploying your MR application. 
+                        </p>
+
+                    <h2 id="mrtklinks">Links/Resources</h2><p>
+                        This guide focuses on the Mixed Reality Toolkit 3. <a href="https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk3-overview/">Visit the Developer Documentation on Microsoft's site to explore the toolkit further.</a> It includes interactive course-like lessons that will step you through the usage of their toolkit or any specific elements you would like to implement.
+                    </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="dev">Application Development.</h1><p>
+                        []
+                    </p>
+
+                    <h2 id="subsection">Debugging</h2><p>
+                        []
+                    </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="deploy">Application Deployment.</h1><p>
+                        []
+                    </p>
+
+                    <h2 id="holosetup">HoloLens Setup</h2><p>
+                        []
+                    </p>
+
+                    <h2 id="emulation">HoloLens Emulation</h2><p>
+                        []
+                    </p>
+
+                    <h2 id="depinstru">Deploying to Hololens</h2><p>
+                        []
+                    </p>
+                <hr></div>
+
+                <div class="section">
+                    <h1 id="conclusion">Conclusion / Wrapping up.</h1><p>
+                        []
+                    </p>
+
+                    <h2 id="mrsummary">Mixed Reality Solutions to the World's Problems.</h2><p>
+                        []
+                    </p>
+
+                    <h2 id="credits">Notes / Credits.</h2><p>
+                        []
+                    </p>
+                <hr></div>
+            </div>
+        </div>
+        <script>
+            
+        </script>
+    </body>
 </html>
