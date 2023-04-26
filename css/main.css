@@ -83,11 +83,29 @@ body{
     margin-bottom: 20px;
 }
 
+.figimgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .fig img {
-    display: block;
-    max-width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
+    display: inline-block;
+    max-width: calc(100% / 3 - 40px);
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.fig img:first-of-type:last-of-type {
+    max-width: 100%;
+}
+  
+.fig img:first-of-type:nth-last-of-type(2),
+.fig img:first-of-type:nth-last-of-type(2) ~ img {
+  max-width: calc(40% - 20px);
 }
 
 .figtxt {
