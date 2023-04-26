@@ -26,8 +26,10 @@
 
                 <div class="tocsection">
                     <a href="#setup"><h1>Getting Started</h1></a>
-                    <a href="#before"><h1>Before You Start</h1></a>
+                    <a href="#before">Before You Start</a>
                     <a href="#unitysetup">Unity Installation</a>
+                    <a href="#vs2022setup">VS2022 Installation</a>
+                    <a href="#projectsetup">Project Setup</a>
                     <a href="#mrtksetup">MRTK Installation</a>
                     <a href="#scripting">C# Scripting</a>
                 <hr></div>
@@ -36,11 +38,6 @@
                     <a href="#mrtk"><h1>Mixed Reality Toolkit</h1></a>
                     <a href="#mrtkfeatures">Features</a>
                     <a href="#mrtklinks">Links/Resources</a>
-                <hr></div>
-
-                <div class="tocsection">
-                    <a href="#dev"><h1>Development</h1></a>
-                    <a href="#debug">Debugging</a>
                 <hr></div>
 
                 <div class="tocsection">
@@ -69,7 +66,9 @@
                         Mixed Reality (MR) is a rapidly evolving field of techonology combining aspects from Augmented Reality (AR) and Virtual Reality (VR) to blend digital and physical elements to enhance the user experience. In VR, the user interacts with a digital world. In AR, digital objects interact with the real world. MR creates an enviroment where both of these concepts coexist. The scope of this techonology is wide, as we see MR applied in a variety of different disciplines and industries. While the tech hasn't yet reached general consumers, the effects of MR are already seen in manufacturing, healthcare, education, research, entertainment, and more.
                     </p>
                         <div class="fig">
-                            <img src="https://www.pcworld.com/wp-content/uploads/2022/12/mixed-reality-headsets-100737680-orig.jpg?quality=50&strip=all">
+                            <div class="figimgs">
+                                <img src="https://www.pcworld.com/wp-content/uploads/2022/12/mixed-reality-headsets-100737680-orig.jpg?quality=50&strip=all">
+                            </div>
                             <p class="figtxt">Figure 1: Various Mixed Reality Headsets</p>
                         </div>
                         <p>
@@ -83,7 +82,9 @@
                         The Microsoft HoloLens is a head-mounted display that uses a combination of sensors and cameras to allow a user to experience MR applications. The HoloLens is recognized as one of the most advanced MR devices available, and Microsoft has made it relatively simply for developers to test and release their own MR applications for the HoloLens via the Microsoft Store.
                     </p>
                         <div class="fig">
-                            <img src="https://www.cnet.com/a/img/resize/a53bbb847a1b1c7f5d4c76fc982e44c41dc71562/hub/2015/01/24/6dc1d439-49a9-4c1d-92c2-625277366be6/microsoft-hololens-rgb.png?auto=webp&width=1200">
+                            <div class="figimgs">
+                                <img src="https://www.cnet.com/a/img/resize/a53bbb847a1b1c7f5d4c76fc982e44c41dc71562/hub/2015/01/24/6dc1d439-49a9-4c1d-92c2-625277366be6/microsoft-hololens-rgb.png?auto=webp&width=1200">
+                            </div>
                             <p class="figtxt">Figure 2: Microsoft HoloLens</p>
                         </div>
                         <p>
@@ -107,26 +108,425 @@
                     </p>
 
                     <h2 id="before">Before you start</h2><p>
-                        [list software/hardware needed]
+                        The following software will be installed throughout this process:
+                        <ul>
+                            <li> Unity Hub
+                                <ul>A platform for managing Unity Editor installations</ul>
+                            </li>
+                            <li> Unity Editor (version 2021.3.23f1) 
+                                <ul>Where the application will be developed.</ul>
+                                <ul>Installed via Unity Hub</ul>
+                            </li>
+                            <li> Visual Studio Community Edition 2022 
+                                <ul>Used for C# script editing and deployment</ul>
+                            </li>
+                            <li> Microsoft's Mixed Reality Feature Tool for Unity- 
+                                <ul>Manages MRTK packages in the unity project</ul>
+                            </li>
+                            <li> Microsoft's Mixed Reality Toolkit 
+                                <ul>Library of tools, prefabs, etc.</ul>
+                                <ul></ul>
+                            </li>
+                        </ul>
                     </p>
+                        <p>This guide will show the process on a Windows 10 computer, so note that some steps may have slight variation for Linux, Mac, or other Windows versions.</p>
+                        <p>To start, make a new folder to store all of the new installed and created files. Name the folder 'mr_tutorial'. (make sure it is in an accessible location, as it will be accessed very often):</p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/folder_setup1.PNG">
+                                    <img src="img/guide/folder_setup2.PNG">
+                                </div>
+                                <p class="figtxt">Figure 3: Creating the new folder</p>
+                            </div>
 
                     <h2 id="unitysetup">Unity</h2><p>
-                        [step by step through unity installation]
+                        Now, Unity will be installed onto your machine. <a href="https://unity.com/download">Click here and navigate to the Unity download page.</a> Then scroll down to the "Create with Unity in three steps" section and click on the download link for the system being used. 
                     </p>
+                        <div class="fig">
+                            <div class="figimgs">
+                                <img src="img/guide/unityhub1.PNG">
+                                <img src="img/guide/unityhub2.PNG">
+                            </div>
+                            <p class="figtxt">Figure 4: Downloading Unity Hub</p>
+                        </div>
+                        <p>
+                            Check your downloads, and the UnityHubSetup.exe file should now be downloading (~115 MB). Once completed, run the .exe file. If prompted to allow the application to make changes to the computer, hit 'Allow' or 'Yes'. Running this file will bring up the Unity Hub Setup window. Hit 'I Agree' at the bottom right of the window.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/unityhubinstall1.PNG">
+                                </div>
+                                <p class="figtxt">Figure 5: Running Unity Hub Setup</p>
+                            </div>
+                        <p>
+                            On the following screen, changes can be made to where Unity Hub will be installed. It installs to "C:\Program Files\Unity Hub" by default, but can be installed anywhere (recall installation location just in case it's needed). Hit Install once changes have been made (if any), and Unity Hub will now be installed
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/unityhubinstall2.PNG">
+                                    <img src="img/guide/unityhubinstall3.PNG">
+                                </div>
+                                <p class="figtxt">Figure 6: Installing Unity Hub</p>
+                            </div>
+                        <p>
+                            Unity Hub has now been installed! Keep 'Run Unity Hub' checked on this window and hit 'Finish' at the bottom right. The Unity Hub will now open and automatically prompt you to install Unity Editor.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/unityhubinstall4.PNG">
+                                    <img src="img/guide/editorinstall1.PNG">
+                                </div>
+                                <p class="figtxt">Figure 7: Opening the Unity Hub</p>
+                            </div>
+
+                        <p>
+                            Unity Hub shows that it will install Unity Editor version 2021.3.23f1 to the 'Unity\Hub\Editor' location (~5.11 GB). Click 'Install Unity Editor' and the install will begin. The smaller window will close, revealing the 'Downloads' tab in Unity Hub. It shows the current progress of the Unity installation. Feel free to explore the Unity Hub for a bit while the editor installs.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/unityhubdownloads.PNG">
+                                </div>
+                                <p class="figtxt">Figure 8: Unity is installing</p>
+                            </div>
+                        <p>Unity is installing the editor application, WebGL Build Support, and Documentation. This may take a while. If more prompts to allow Unity Hub to make changes to the device pop up throughout the process, be sure to click 'Yes' or 'Allow' as done before.</p>
+                        <p>You may want to <a href="#vs2022setup">install Visual Studio 2022</a> while you wait!</p>
+
+                        <p>
+                            Once the installation is complete a 'Install complete' message will show 'Downloads' tab. The Unity Editor installation can now also be seen under the 'Installs' tab.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/installdonedown.PNG">
+                                    <img src="img/guide/installdone.PNG">
+                                </div>
+                                <p class="figtxt">Figure 9: Completed Unity installation</p>
+                            </div>
+
+                        <p>
+                            Now that Unity is installed, one module needs to be added for MR software development. On the 'Installs' tab, click the gear to the right of the installation. In the menu that appears, click 'Add Modules'.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/addmodules.PNG">
+                                </div>
+                                <p class="figtxt">Figure 10: Selecting Add modules</p>
+                            </div>
+                        
+                        <p>
+                            A list of modules will now appear. If Microsoft Visual Studio Community 2019 is selected (blue check next to module), click on the check to deselect it. Visual Studio 2019 should not be instaled since Visual Studio 2022 will be installed in the next section. 
+                        </p>
+                        <p>
+                            Scroll and find the 'Universal Windows Platform Build Support' module, and check the checkbox to the left of it to select it.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/modulesmenu.PNG">
+                                    <img src="img/guide/uwpmodule.PNG">
+                                </div>
+                                <p class="figtxt">Figure 11: Deselected VS2019, selected UWP module</p>
+                            </div>
+
+                        <p>
+                            Once the proper modules are selected/deselected, click 'Install' on the bottom right. This will start the installation of the UWP module selected previously (~1.97 GB). It's installation progress can be monitored similary to inital Unity Editor installation.
+                        </p>
+                        <p>
+                            Congratulations! Unity is now properly setup for MR software development. The next step is to <a href="#vs2022setup">install Visual Studio 2022.</a> If Visual Studio 2022 is already installed, skip ahead to <a href="#projectsetup">project setup.</a>
+                        </p>
+
+                    <h2 id="vs2022setup">Visual Studio 2022</h2><p>
+                        Visual Studio 2022 is used in the development process as a C++ code editor and build compiler. The installation process for Visual Studio 2022 will now be shown:
+                    </p>
+                        <p>
+                            <a href="https://visualstudio.microsoft.com/downloads/">Click here and navigate to the Visual Studio download page</a>, then click on the 'Free download' button under the 'Community section' on the page.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/vsinstall1.PNG">
+                                </div>
+                                <p class="figtxt">Figure 12: Downloading Visual Studio</p>
+                            </div>
+
+                        <p>
+                            Check your downloads, and the VisualStudioSetup.exe will now be downloaded (~3.54 MB). Once completed, run the .exe file. If prompted to allow the application to make changes to the computer, hit 'Allow' or 'Yes'. Running this file will bring up a small Visual Studio Installer window. Hit 'Continue' at the bottom right of the window and the Visual Studio Installer will now be installed (~21.2 MB).
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/vsinstall2.PNG">
+                                </div>
+                                <p class="figtxt">Figure 13: Starting Visual Studio Install</p>
+                            </div>
+
+                        <p>
+                            Once installed, a larger Visual Studio Installer window will open. This window details what will be included in the Visual Studio 2022. There are some workloads and componenets that are needed for Unity MR Development, which will be detailed below.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/vsinstaller1.PNG">
+                                </div>
+                                <p class="figtxt">Figure 14: Visual Studio Installer startup - workload tab</p>
+                            </div>
+
+                        <p>
+                            Make sure the following workloads are checked under the 'Workloads' tab in the menu on the left:
+                            <ul>
+                                <li>.Net desktop development</li>
+                                <li>Desktop Development with C++</li>
+                                <li>Universal Windows Platform development</li>
+                                <li>Game development with Unity</li>
+                            </ul>
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/workloads.PNG">
+                                </div>
+                                <p class="figtxt">Figure 15: Selected workloads</p>
+                            </div>
+
+                        <p>
+                            In the rightmost menu 'Installation details' expand the Universal Windows Platform development section (click the arrow next to it in the list) to show the individual components. make sure the following components are checked (leave any that already checked the way they are):
+                            <ul>
+                                <li>USB Device Connectivity</li>
+                                <li>C++ (v142) Universal Windows Platform tools</li>
+                                <li>Windows 10 SDK (10.0.19041.0)
+                                    <ul>Windows 10 SDK (10.0.18362.0) or Windows 11 SDK will work as well</ul>
+                                </li>
+                                <li>Game development with Unity</li>
+                            </ul>
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/uwpcomponents.PNG">
+                                </div>
+                                <p class="figtxt">Figure 16: Selected UWP workload components</p>
+                            </div>
+
+                        <p>
+                            Click install on the bottom right, which will start the Visual Studio 2022 install with the selected workloads and components (~31.51 GB). It will show the main Visual Studio Installer window, where the installation's progress is shown. Visual Studio will download and install simultaneously, but still may take a while to complete. While waiting, make sure you have completed all other Unity installation steps, as they will be necessary for the next sections.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/vsinstaller2.PNG">
+                                </div>
+                                <p class="figtxt">Figure 17: Visual Studio install in progress</p>
+                            </div>
+
+                    <h2 id="projectsetup">Project Setup</h2><p>
+                        Now that Unity and Visual Studio 2022 are installed with the proper components and modules, a simple tutorial project will be completed. This section will step through the creation of the project, and the next will step through importing the Mixed Reality Toolkit into the new project.
+                    </p>
+                        <p>
+                            In Unity Hub, navigate to the 'Projects tab' and click the 'New project' button at the top right to begin the creation of the tutorial project.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/projectstab.PNG">
+                                </div>
+                                <p class="figtxt">Figure 18: Unity Hub Projects Tab</p>
+                            </div>
+
+                            <p>
+                                This will open the 'New project' window where the project type or template can be selected. MR projects are considered 3D projects in Unity, so click on the box with '3D Core' to select it. On the right side of the window in 'Project Settings' set the project name to something similar to 'My first MR project'.
+                            </p>
+                                <div class="fig">
+                                    <div class="figimgs">
+                                        <img src="img/guide/newproject.PNG">
+                                    </div>
+                                    <p class="figtxt">Figure 19: New project window - selecting 3D and setting a project name</p>
+                                </div>
+
+                            <p>
+                                The project's 'Location' will be set to the project folder created earlier (mr_tutorial). Click the folder icon to the right of the current 'Location', navigate into your mr_tutorial folder, then click 'Select folder' to set your mr_tutorial folder as your project location. The location has now been updated, so click on 'Create project' within the 'New project' window to begin building the project.
+                            </p>
+                                <div class="fig">
+                                    <div class="figimgs">
+                                        <img src="img/guide/location.PNG">
+                                        <img src="img/guide/createproject.PNG">
+                                    </div>
+                                    <p class="figtxt">Figure 20: Setting project location to mr_tutorial</p>
+                                </div>
+
+                                <div class="fig">
+                                    <div class="figimgs">
+                                        <img src="img/guide/projectbeingcreated.PNG">
+                                    </div>
+                                    <p class="figtxt">Figure 21: Unity is building the new project</p>
+                                </div>
+
+                            <p>
+                                Welcome to Unity! The tutorial MR Project had been created, and this is the unity environment. The next step is to import the Mixed Reality Toolkit.
+                            </p>
+                                <div class="fig">
+                                    <div class="figimgs">
+                                        <img src="img/guide/projectloaded.PNG">
+                                    </div>
+                                    <p class="figtxt">Figure 22: My first MR Project</p>
+                                </div>
+
+                            <p>
+                                Close out of the Unity project (X on top right). It will be reopened once MRTK is imported.
+                            </p>
 
                     <h2 id="mrtksetup">Mixed Reality Toolkit</h2><p>
-                        [step by step through mrtk installation]
+                        In this section the Mixed Reality Feature Tool will be downloaded and used to import the Mixed Reality Toolkit into the new project.  
                     </p>
                         <p>
-                            [mrtk hello world project setup]
+                            <a href="https://www.microsoft.com/en-us/download/details.aspx?id=102778">Click here to navigate to the Mixed Reality Feature Tool download page</a>, then scroll down and click on the 'Download' button. In the 'Choose the download you want' window, check MixedRealityFeatureTool.exe then press next. This file will now be downloaded (~68.1 MB).
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/featuretooldl.PNG">
+                                    <img src="img/guide/choosethedownload.PNG">
+                                </div>
+                                <p class="figtxt">Figure 23: Downloading the Mixed Reality Feature Tool</p>
+                            </div>
+
+                        <p>
+                            Place this downloaded file (MixedRealityFeatureTool.exe) into the tutorial folder mr_tutorial, and then run the file (This isn't necessary, but it's smart to place it here during the tutorial so it is easily accessible). The Mixed Reality Feature Tool for Unity will now open. Click Start to begin the import process (The tool must refresh first, so it may be grayed out upon first opening. Wait a bit and allow it to refresh, and the Start option will be available). 
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/toolinfolder.PNG">
+                                    <img src="img/guide/featuretool1.PNG">
+                                </div>
+                                <p class="figtxt">Figure 24: Opening the Mixed Reality Feature Tool</p>
+                            </div>
+
+                        <p>
+                            On the 'Select Project' window, the path to the project must be set. Click the three dots to the left of the project path text box, then navigate to the created project folder (the one inside mr_tutorial, not mr_tutorial itself). The folders Unity automatically creates should be seen (Assets, Library, Logs, etc.). Click 'Open' to update the path. 
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/selectproject.PNG">
+                                    <img src="img/guide/settingmrtkfolder.PNG">
+                                </div>
+                                <p class="figtxt">Figure 25: Setting project path</p>
+                            </div>
+
+                        <p>
+                            With the path now updated, click 'Discover Features' to begin adding features to the project.
                         </p>
 
+                        <p>
+                            In the 'Discover Features' window, all MRTK features and examples are listed. The features needed for this tutorial will now be selected. Make sure the 'Show preview releases' check box at the bottom is checked, so that all features are visible.
+                        </p>
+
+                        <p>
+                            Navigate through the following sections and ensure the corresponding features are checked:
+                            <ul>
+                                <li>Platform Support
+                                    <ul>Mixed Reality OpenXR Plugin</ul>
+                                </li>
+                                <li>Spatial Audio
+                                    <ul>Microsoft Spatializer</ul>
+                                </li>
+                                <li>MRTK3
+                                    <ul>MRTK Input</ul>
+                                    <ul>MRTK UX Components</ul>
+                                </li>
+                            </ul>
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/discoverfeatures.PNG">
+                                </div>
+                                <p class="figtxt">Figure 27: MRTK Discover Features window.</p>
+                            </div>
+
+                        <p>
+                            Once all proper features are selected, click the 'Get Features' button on the bottom right of the window. The selected features will now be downloaded, as prompted on the window. Once complete, the 'Import Features' window will appear. This window details the features chosen as well as the dependencies required for the chosen features. All of these packages were downloaded and will be imported into the project.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/importfeatures.PNG">
+                                </div>
+                                <p class="figtxt">Figure 28: MRTK Import Features window.</p>
+                            </div>
+
+                        <p>
+                            Ensure everything in both lists are checked, then click the 'Import' button. On the 'Review and Approve' window click the 'Approve' button. The features have now been imported into the tutorial project. Click exit on this window, and reopen the Unity project. 
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/approve.PNG">
+                                    <img src="img/guide/featuretooldone.PNG">
+                                </div>
+                                <p class="figtxt">Figure 29: Completing the feature import process.</p>
+                            </div>
+                        
+                        <p>
+                            In Unity Hub the tutorial project can be reopened by clicking on its box in the 'Projects' tab
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/reopen.PNG">
+                                </div>
+                                <p class="figtxt">Figure 30: Reopening the project.</p>
+                            </div>
+
+                        <p>
+                            Upon reopen (or as soon as the window is clicked if the project wasn't closed), the packages will be imported and the environment will go through a setup process. Several pop up messages will appear. When the 'Warning' message appears about enabling input backends, click yes. 
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/popup1.PNG">
+                                    <img src="img/guide/popup2.PNG">
+                                </div>
+                                <p class="figtxt">Figure 31: MRTK setup popups - 1.</p>
+                            </div>
+
+                        <p>
+                            Another pop up will appear asking to update XR InteractionLayerMask, click 'No Thanks', and the editor will finishing importing. (Will restart several times throughout the process) 
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/popup3.PNG">
+                                </div>
+                                <p class="figtxt">Figure 32: MRTK setup popups - 2.</p>
+                            </div>
+
+                        <p>
+                            The MRTK features have now all been imported into the project! Some last setup processes will be complete to finalize the importing of MRTK into the tutorial project.
+                        </p>
+
+                        <p>
+                            Firstly, a MRTK3 Profile must be assigned. At the top left of the editor, click 'Edit', then click 'Project Settings' in the menu that pops up. In this window are tabs of the project's settings. Click on the 'MRTK3' tab to show the MRTK3 settings.
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/editmenu.PNG">
+                                    <img src="img/guide/mrtk3settings.PNG">
+                                </div>
+                                <p class="figtxt">Figure 33: Opening Project Settings.</p>
+                            </div>
+
+                        <p>
+                            [setting profile].
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/[].PNG">
+                                    <img src="img/guide/[].PNG">
+                                </div>
+                                <p class="figtxt">Figure 34: [].</p>
+                            </div>
+
+                        <p>
+                            [openxr].
+                        </p>
+                            <div class="fig">
+                                <div class="figimgs">
+                                    <img src="img/guide/[].PNG">
+                                    <img src="img/guide/[].PNG">
+                                </div>
+                                <p class="figtxt">Figure 35: [].</p>
+                            </div>
+                        
                     <h2 id="scripting">C# Scripting</h2><p>
-                        As mentioned at the beginning of this section, Unity uses C# as its scripting programming language. During Unity installation you were given the option to install the newest version of Visual Studio, and we will now explore using VS as our IDE to build our own scripts for our 'Hello World' project. Note that any IDE or text editor will work just fine for C# script editing, but Visual Studio has advanced features that tie in perfectly with the MRTK and HoloLens (all 3 developed by Microsoft). This is especially true when it comes time to deploy your application to a device. Again, Visual Studio is recommended, but not required.
+                        As mentioned at the beginning of this section, Unity uses C# as its scripting programming language. During installation the newest version of Visual Studio was installed, and we will now explore using VS as our IDE to build our own scripts for our 'Hello World' project. Note that any IDE or text editor will work just fine for C# script editing, but Visual Studio has advanced features that tie in perfectly with the MRTK and HoloLens (all 3 developed by Microsoft). This is especially true when it comes time to deploy your application to a device. Again, Visual Studio is recommended, but not required.
                     </p>
                         <p>
-                            [scripting tutorial]
+                            (The current version of this guide does not use custom scripts for the tutorial project, but the next version will! Check back soon.)
                         </p>
+
                 <hr></div>
 
                 <div class="section">
@@ -158,30 +558,20 @@
                 <hr></div>
 
                 <div class="section">
-                    <h1 id="dev">Application Development.</h1><p>
-                        []
-                    </p>
-
-                    <h2 id="subsection">Debugging</h2><p>
-                        []
-                    </p>
-                <hr></div>
-
-                <div class="section">
                     <h1 id="deploy">Application Deployment.</h1><p>
-                        []
+                        (The current version of this guide does not cover application deployment, but the next version will! Check back soon. Below are the topics that will be covered)
                     </p>
 
                     <h2 id="holosetup">HoloLens Setup</h2><p>
-                        []
+                        
                     </p>
 
                     <h2 id="emulation">HoloLens Emulation</h2><p>
-                        []
+                        
                     </p>
 
                     <h2 id="depinstru">Deploying to Hololens</h2><p>
-                        []
+                        
                     </p>
                 <hr></div>
 
